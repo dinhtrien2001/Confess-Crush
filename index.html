@@ -46,9 +46,19 @@
     <script src="./js/main.js"></script>
 
     <script>
-        function loadSound() {
-            var audio = new Audio('sound/sound.mp3');
-            audio.play();chrome.exe --autoplay-policy=no-user-gesture-required
+        // Existing code unchanged.
+window.onload = function() {
+  var context = new AudioContext();
+  // Setup all nodes
+  // ...
+}
+
+// One-liner to resume playback when user interacted with the page.
+document.querySelector('button').addEventListener('click', function() {
+  context.resume().then(() => {
+    console.log('Playback resumed successfully');
+  });
+});
         }
     </script>
 </body>
